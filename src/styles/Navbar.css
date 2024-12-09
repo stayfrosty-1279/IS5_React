@@ -1,0 +1,66 @@
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #D4EBF8;
+    color: black;
+    position: relative; /* Make sure it's positioned relative for z-index to work */
+    z-index: 1000; /* Ensure the navbar is on top of other content */
+  }
+  
+  .navbar .logo h2 {
+    margin: 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+  
+  .hamburger {
+    display: none; /* Hide hamburger by default */
+    cursor: pointer;
+    z-index: 1100; /* Ensure the hamburger icon is on top */
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* Show hamburger on mobile screens */
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #D4EBF8;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateX(-100%); /* Hidden by default */
+      transition: transform 0.3s ease-in-out;
+      z-index: 999; /* Ensure menu is above the page content */
+    }
+  
+    .nav-links.active {
+      transform: translateX(0); /* Slide in the menu */
+    }
+  
+    .nav-links li a {
+      font-size: 22px;
+      color: black;
+    }
+  }
+  
